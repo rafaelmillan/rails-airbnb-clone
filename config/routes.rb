@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :places do
     resources :reservations, only: [ :new, :create ]
   end
+  resources :users, only: [:show]
 end

@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @place.name %></h1>
-          <%= @place.description %>
-          <%= @place.address%>
-          <%= @place.price%>
-          <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
+        <%= @place.description %>
+        <%= @place.address%>
+        <%= @place.price%>
+        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
