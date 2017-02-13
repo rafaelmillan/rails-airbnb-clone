@@ -1,6 +1,10 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [ :edit, :update ]
 
+  def index
+    @places = Place.all
+  end
+
   def new
     @place = Place.new
   end
