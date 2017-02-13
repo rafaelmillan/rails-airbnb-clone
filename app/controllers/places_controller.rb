@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :set_place, only: [ :edit, :update ]
 
   def new
     @place = Place.new
@@ -18,10 +19,24 @@ class PlacesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @place.update(place_params)
+      redirect_to place_path(@place)
+    else
+      render :edit
+    end
+  end
 
   private
 
   def place_params
     params.require(:place).permit(:name, :description, :address, :price)
+  end
+
+  def set_place
+    @place = Place.find(params[:id])
   end
 end
