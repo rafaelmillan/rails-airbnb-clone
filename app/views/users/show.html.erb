@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div><h2>User Name</h2>
+        <%= @user.email %>
+      </div>
+      <div><h3>Reservation List</h3>
+      </div>
+      <div> <h3>INBOX</h3></div>
+      <div>
+        <h3>My Places</h3>
+        <% @places.each do |place| %>
+        <%= place.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
