@@ -4,6 +4,10 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
+  def show
+    @place = Place.find(params[:id])
+  end
+
   def create
     @place = Place.new(place_params)
     @place.user = current_user
