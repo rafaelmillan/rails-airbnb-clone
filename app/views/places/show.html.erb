@@ -5,8 +5,8 @@
         <%= @place.description %>
         <%= @place.address%>
         <%= @place.price%>
+        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
-
 
