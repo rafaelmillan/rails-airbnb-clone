@@ -5,5 +5,6 @@ class Place < ApplicationRecord
   validates :description, presence: true
   validates :address, presence: true
   validates :price, presence: true
+  validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 end

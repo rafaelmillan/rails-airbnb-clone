@@ -37,7 +37,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :description, :address, :price)
+    params.require(:place).permit(:name, :description, :address, :price, :photo, :photo_cache)
   end
 
   def set_place
