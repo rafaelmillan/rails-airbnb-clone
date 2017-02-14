@@ -19,6 +19,8 @@ gem 'devise'
 gem "bulma-rails", "~> 0.3.1"
 
 
+gem 'faker'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
