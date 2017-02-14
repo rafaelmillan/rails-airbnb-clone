@@ -16,6 +16,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
+gem "bulma-rails", "~> 0.3.1"
+
 
 group :development, :test do
   gem 'binding_of_caller'
