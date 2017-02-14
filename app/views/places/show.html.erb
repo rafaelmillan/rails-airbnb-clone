@@ -1,45 +1,67 @@
-<div class="container">
+<!-- <div class="_bulma-grid">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child">
+              <h1><%= @place.name %></h1>
+            </article>
+            <article class="tile is-child">
+              <%= @place.description %>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child">
+             <%= @place.price%>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child">
+           <%= @place.address %>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "button is-primary is-large" %>
+      </div>
+    </div>
+  </div>
+   <div>
+        <%= link_to "Back to homepage", places_path, method: :post, class: "button is-primary" %>
+    </div>
+  </div>
+ -->
+ <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @place.name %></h1>
-        <%= @place.description %>
-        <%= @place.address%>
-        <%= @place.price%>
-        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
+    <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-0 col-lg-4 col-lg-offset-0">
+     <div class="media">
+      <div class="media-body">
+        <div class="media-section">
+          <h1><%= @place.name %></h1>
+        </div>
+        <div class="media-section">
+          <h2>Description</h2>
+          <%= @place.description %>
+        </div>
+        <div class="media-section">
+          <h2>Address</h2>
+          <%= @place.address %>
+        </div>
+        <div class="media-section">
+         <h2>Price </h2>
+         <%= @place.price %>
+       </div>
+       <div class="media-section">
+        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn-treehouse"
+        %>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-<div class="tile is-ancestor">
-  <div class="tile is-vertical is-8">
-    <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child">
-        <h1><%= @place.name %></h1>        </article>
-        <article class="tile is-child">
-        <%= @place.description %>
-        </article>
-      </div>
-      <div class="tile is-parent">
-        <article class="tile is-child">
-        <%= @place.address%>
-
-        </article>
-      </div>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child">
-      <%= @place.price%>
-
-      </article>
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <article class="tile is-child">
-      <!-- Any content you want here -->
-    </article>
-  </div>
+</div>
+</div>
+<div class="padded text-center" >
+  <%= link_to "Back to homepage", places_path, class: "btn-medium" %>
 </div>
