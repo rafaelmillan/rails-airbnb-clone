@@ -19,6 +19,8 @@ gem 'devise'
 
 
 gem 'faker'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'binding_of_caller'
