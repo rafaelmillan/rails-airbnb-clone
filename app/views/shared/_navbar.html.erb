@@ -15,14 +15,6 @@
       </button>
     </form>
 
-    <!-- Notification -->
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    <% end %>
-
     <!-- Profile picture and dropdown -->
     <% if user_signed_in? %>
       <div class="navbar-wagon-item">
@@ -30,13 +22,8 @@
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
 
