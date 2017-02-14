@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_reservation, only: [ :accept, :decline ]
 
   def create
     @reservation = Reservation.new
@@ -8,4 +9,24 @@ class ReservationsController < ApplicationController
     @reservation.save
     redirect_to root_path # Change once we create a users#show
   end
+
+  def accept
+    @reservation.accept
+    redirect_to user_path(@reservation.place.user.id)
+  end
+
+  def decline
+    @reservation.decline
+    redirect_to user_path(@reservation.place.user.id)
+  end
+
+  private
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
+  # def reservation_params
+  #   params.require(:reservation).permit(:user, :reservation)
+  # end
 end

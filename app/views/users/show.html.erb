@@ -4,15 +4,39 @@
       <div><h2>User Name</h2>
         <%= @user.email %>
       </div>
-      <div><h3>Reservation List</h3>
-      </div>
-      <div> <h3>INBOX</h3></div>
       <div>
         <h3>My Places</h3>
         <% @places.each do |place| %>
         <%= place.name %>
         <% end %>
       </div>
+      <% if current_user == @user %>
+        <div>
+          <h3>Reservations for my places</h3>
+          <ul>
+            <% @reservations_for_me.each do |res| %>
+             <li>
+                <%= res.user.email %> requested <%= res.place.name %>.
+                <% if res.status == "pending" %>
+                  <%= link_to "Accept", reservation_accept_path(res.id), method: :patch %> | <%= link_to "Decline", reservation_decline_path(res.id), method: :patch %>
+                <% else %>
+                  <%= res.status %>
+                <% end %>
+             </li>
+            <% end %>
+          </ul>
+        </div>
+        <div>
+          <h3>Reservations I made</h3>
+          <ul>
+            <% @reservations_i_made.each do |res| %>
+              <li>
+                <%= res.place.name %>. <%= res.status %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
