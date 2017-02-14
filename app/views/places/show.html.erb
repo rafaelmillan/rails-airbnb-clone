@@ -1,11 +1,15 @@
- <div class="container">
+ <div class="place-photo-wrapper" style= "background-image: url('<%= cl_image_path @place.photo, width: 1500, height: 400, crop: :fill %>')">
+ <div class="banner-content">
+  <h1><%= @place.name %></h1>
+  <div><%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary"
+  %></div>
+  </div>
+</div>
+<div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-0 col-lg-4 col-lg-offset-0">
+    <div class="col-xs-12 col-md-4">
      <div class="media">
       <div class="media-body">
-        <div class="media-section">
-          <h1><%= @place.name %></h1>
-        </div>
         <div class="media-section">
           <h2>Description</h2>
           <%= @place.description %>
@@ -18,17 +22,18 @@
          <h2>Price </h2>
          <%= @place.price %>
        </div>
-        <div class="media-section">
+       <div class="media-section">
          <h2>User</h2>
          <%= link_to @place.user.email, user_path(@place.user) %>
        </div>
-       <div class="media-section">
-        <%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn-treehouse"
-        %>
-      </div>
-    </div>
-  </div>
-</div>
+     </div>
+   </div>
+ </div>
+ <div class="col-xs-12 col-md-8">
+   <div style="background-image: url('<%= image_path 'space_map.jpg' %>')" class="space-map">
+     <i class="fa fa-map-marker"></i>
+   </div>
+ </div>
 </div>
 </div>
 <div class="padded text-center" >
