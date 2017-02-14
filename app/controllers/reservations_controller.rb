@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def create
     @reservation = Reservation.new
     @reservation.user = current_user
