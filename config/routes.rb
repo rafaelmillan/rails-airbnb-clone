@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :reservations, only: [ :create ]
   end
   resources :users, only: [:show]
+  patch "reservations/:id/accept", to: "reservations#accept", as: :reservation_accept
+  patch "reservations/:id/decline", to: "reservations#decline", as: :reservation_decline
 end
