@@ -1,19 +1,26 @@
 <div class="wrapper">
   <div class="container">
-    <div class="row">
-      <div class="col-sx-12 col-md-6 col-sm-4">
-        <% @places.each do |place| %>
-          <div class="card">
-            <div class="card-category">Popular</div>
-              <div class="card-description">
-                <h2><%= place.name %></h2>
-                <p><%= place.description %></p>
-              </div>
-              <%= image_tag "user.jpg", class: "card-user avatar" %>
-              <%= link_to "#", "place_path(@place)", class: "card-link" %>
+    <div class="row", id="place-list">
+      <% @places.each do |place| %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card text-center">
+
+
+            <div class="card-header" style="background-image: url('https://unsplash.it/g/400x300')">
+            </div>
+
+
+            <div class="card-description">
+              <h3><%= place.name %></h3>
+            </div>
+            <%= link_to "", place_path(place), class: "card-link" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
+  <%= link_to 'Add new place', new_place_path(@place), class: "btn btn-success" %>
 </div>
+
+
+
