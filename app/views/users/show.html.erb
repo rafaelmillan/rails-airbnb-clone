@@ -25,6 +25,16 @@
           <% end %>
         </ul>
       </div>
+      <div>
+        <h3>Reservations I made</h3>
+        <ul>
+          <% @reservations_i_made.each do |res| %>
+            <li>
+              <%= res.place.name %>. <%= res.status %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
