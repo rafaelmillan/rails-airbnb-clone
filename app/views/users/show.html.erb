@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-  <% user_avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+  <% user_avatar_url = @user.facebook_picture_url || @user.photo %>
 
-    <h2><%= image_tag user_avatar_url, crop: :fill, class: "avatar" %> <%= @user.username %></h2>
+    <h2><%= image_tag user_avatar_url, crop: :fill, class: "avatar" %> <%= @user.first_name %></h2>
     <div class="col-xs-12 col-sm-6">
       <div>
         <h3>Places</h3>
@@ -41,7 +41,7 @@
             <% @reservations_for_me.each do |res| %>
             <tr>
               <td>
-                <%= link_to res.user.username, user_path(res.user) %>
+                <%= link_to res.user.first_name, user_path(res.user) %>
               </td>
               <td>
                <%= link_to res.place.name, place_path(res.place) %>
@@ -72,7 +72,7 @@
               <%= link_to res.place.name, place_path(res.place) %>
             </td>
             <td>
-              <%= link_to res.user.username, user_path(res.user) %>
+              <%= link_to res.place.user.first_name, user_path(res.place.user) %>
             </td>
             <td>
               <% if res.status == "accepted" %>

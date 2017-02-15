@@ -8,11 +8,12 @@ Faker::UniqueGenerator.clear
 
 puts "Seeding users"
 
+i = 1
 10.times do
-  i = 1
   user = User.new(
     email: Faker::Internet.unique.email,
-    password: "123456"
+    password: "123456",
+    first_name: Faker::StarWars.character
   )
   user.photo = Rails.root.join("db/seed_avatars/#{i}.jpg").open
   user.save!
@@ -21,19 +22,20 @@ end
 
 user = User.new(
   email: "rafmillan@gmail.com",
-  password: "123456"
+  password: "123456",
+  first_name: "Rafael"
 )
 user.photo = Rails.root.join("db/seed_avatars/rafael.jpg").open
 user.save!
 
 puts "Seeding places"
 
+i = 1
 20.times do
-  i = 1
   place = Place.new(
-    name: Faker::Space.planet,
-    description: Faker::Hipster.sentence,
-    address: Faker::Address.street_address,
+    name: Faker::Space.moon,
+    description: Faker::StarWars.quote,
+    address: "#{(100..5000).to_a.sample} #{Faker::Space.star}, #{Faker::Space.galaxy}",
     price: (1000..3000).to_a.sample,
     user: User.all.sample
   )
