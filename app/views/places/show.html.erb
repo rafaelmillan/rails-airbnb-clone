@@ -3,9 +3,9 @@
   <h1><%= @place.name %></h1>
   <div>
   <% if user_signed_in? %>
-    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
+    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" %>
   <% else %>
-    <%= link_to "Book", new_user_session_path, class: "btn btn-primary" %>
+    <%= link_to "Book", new_user_session_path, class: "btn btn-transparent btn-lg" %>
   <% end %>
 
   </div>
@@ -14,28 +14,24 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-4">
-     <div class="media">
-      <div class="media-body">
-        <div class="media-section">
-          <h2>Description</h2>
+
+          <h3>Description</h3>
           <%= @place.description %>
-        </div>
-        <div class="media-section">
-          <h2>Address</h2>
+
+          <h3>Address</h3>
           <%= @place.address %>
-        </div>
-        <div class="media-section">
-         <h2>Price </h2>
-         <%= @place.price %>
-       </div>
-       <div class="media-section">
-         <h2>User</h2>
+
+         <h3>Price </h3>
+         <%= @place.price %> €
+
+         <h3>User</h3>
          <%= link_to @place.user.first_name, user_path(@place.user) %>
-       </div>
-     </div>
+
+
    </div>
- </div>
+
  <div class="col-xs-12 col-md-8">
+   <h3>Galaxy location</h3>
    <div style="background-image: url('<%= image_path 'space_map.jpg' %>')" class="space-map">
      <i class="fa fa-map-marker"></i>
    </div>
