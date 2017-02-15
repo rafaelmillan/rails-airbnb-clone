@@ -24,6 +24,16 @@
   width: 50px;
 }
 
+.navbar-wagon-brand {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: #4C4C4C;
+  }
+}
+
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
   display: flex;
