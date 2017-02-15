@@ -22,7 +22,6 @@ gem 'faker'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 gem 'omniauth-facebook'
-gem 'rails-assets-particles.js', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'binding_of_caller'
