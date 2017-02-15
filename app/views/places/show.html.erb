@@ -5,7 +5,7 @@
   <% if user_signed_in? %>
     <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "Book", new_user_session, class: "btn btn-primary" %>
+    <%= link_to "Book", new_user_session_path, class: "btn btn-primary" %>
   <% end %>
 
   </div>
