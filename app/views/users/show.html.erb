@@ -60,14 +60,32 @@
         </table>
       </div>
       <div role="tabpanel" class="tab-pane" id="bookings">
-        <h3>My bookings</h3>
-        <ul>
+        <table class="table">
+          <tr>
+            <th>Place</th>
+            <th>Host</th>
+            <th>Status</th>
+          </tr>
           <% @reservations_i_made.each do |res| %>
-          <li>
-            <%= res.place.name %>. <%= res.status %>
-          </li>
+          <tr>
+            <td>
+              <%= res.place.name %>
+            </td>
+            <td>
+              <%= res.place.user.username %>
+            </td>
+            <td>
+              <% if res.status == "accepted" %>
+              <span class="label label-success"><i class="fa fa-check"></i></span> Accepted
+              <% elsif res.status == "declined" %>
+              <span class="label label-danger"><i class="fa fa-times"></i></span> Declined
+              <% else %>
+              <span class="label label-default"><i class="fa fa-question"></i></span> Pending
+              <% end %>
+            </td>
+          </tr>
           <% end %>
-        </ul>
+        </table>
       </div>
     </div>
 
