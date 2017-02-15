@@ -28,4 +28,8 @@ def self.find_for_facebook_oauth(auth)
     return user
   end
 
+  def username
+    return self.email.split("@")[0].capitalize
+  end
+
 end
