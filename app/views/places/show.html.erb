@@ -1,8 +1,14 @@
  <div class="place-photo-wrapper" style= "background-image: url('<%= cl_image_path @place.photo, width: 1500, height: 400, crop: :fill %>')">
  <div class="banner-content">
   <h1><%= @place.name %></h1>
-  <div><%= link_to "Reserve", place_reservations_path(@place), method: :post, class: "btn btn-primary"
-  %></div>
+  <div>
+  <% if user_signed_in? %>
+    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Book", new_user_session, class: "btn btn-primary" %>
+  <% end %>
+
+  </div>
   </div>
 </div>
 <div class="container">
