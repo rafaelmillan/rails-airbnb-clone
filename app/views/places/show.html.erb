@@ -3,9 +3,9 @@
   <h1><%= @place.name %></h1>
   <div>
   <% if user_signed_in? %>
-    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-primary" %>
+    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" %>
   <% else %>
-    <%= link_to "Book", new_user_session_path, class: "btn btn-primary" %>
+    <%= link_to "Book", new_user_session_path, class: "btn btn-transparent btn-lg" %>
   <% end %>
 
   </div>
