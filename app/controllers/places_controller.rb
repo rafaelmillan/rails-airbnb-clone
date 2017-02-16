@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [ :edit, :update ]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def index
     @places = Place.all
@@ -34,6 +34,11 @@ class PlacesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    query = params[:query]
+    @places = Place.where("name LIKE ?", "%#{query}%")
   end
 
   private

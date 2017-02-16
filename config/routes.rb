@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'places#index'
 
+  get "places/search", to: "places#search"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :places do
     resources :reservations, only: [ :create ]
