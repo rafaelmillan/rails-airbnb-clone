@@ -4,7 +4,7 @@ $(document).ready(function(){
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 160,
+      "value": 300,
       "density": {
         "enable": true,
         "value_area": 800
@@ -74,11 +74,11 @@ particlesJS("particles-js", {
     "detect_on": "canvas",
     "events": {
       "onhover": {
-        "enable": true,
+        "enable": false,
         "mode": "bubble"
       },
       "onclick": {
-        "enable": true,
+        "enable": false,
         "mode": "repulse"
       },
       "resize": true
