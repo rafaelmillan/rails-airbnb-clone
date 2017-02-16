@@ -6,7 +6,12 @@
 
         <%= image_tag user_avatar_url, crop: :fill, class: "avatar-large" %>
         <h2><%= @user.first_name %></h2>
-        <i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star inactive-star"></i>
+        <% @user.rating.times do %>
+        <i class="fa fa-star active-star"></i>
+        <% end %>
+        <% (5 - @user.rating).times do %>
+        <i class="fa fa-star inactive-star"></i>
+        <% end %>
       </div>
       <div class="user-details">
         <h2>Bio</h2>
@@ -19,7 +24,15 @@
           <div class="row">
             <% @places.each do |place| %>
             <div class="col-xs-6 col-sm-12 col-md-6">
-              <div class="card text-center">
+              <div class="card">
+                <div class="card-category">
+                  <% place.rating.times do %>
+                  <i class="fa fa-star active-star"></i>
+                  <% end %>
+                  <% (5 - place.rating).times do %>
+                  <i class="fa fa-star inactive-star"></i>
+                  <% end %>
+                </div>
 
 
                 <div class="card-header" style="background-image: url('<%= cl_image_path place.photo, height: 300, width: 400, crop: :fill %>')">
@@ -27,7 +40,8 @@
 
 
                 <div class="card-description">
-                  <h3><%= place.name %></h3>
+                <h3><%= place.name %></h3>
+                <p>€<%= place.price %></p>
                 </div>
                 <%= link_to "", place_path(place), class: "card-link" %>
               </div>
@@ -36,12 +50,15 @@
           </div>
         </div>
         <h2>Reviews</h2>
-        <i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star inactive-star"></i>
-        <p>Some great review blabla bla</p>
-        <i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star inactive-star"></i>
-        <p>Some great review blabla bla</p>
-        <i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star active-star"></i><i class="fa fa-star inactive-star"></i>
-        <p>Some great review blabla bla</p>
+        <% @user.reviews.each do |review| %>
+        <% review.rating.times do %>
+        <i class="fa fa-star active-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+        <i class="fa fa-star inactive-star"></i>
+        <% end %>
+        <p><%= review.content %></p>
+        <% end %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6">

@@ -1,7 +1,14 @@
 <% @places.each do |place| %>
 <div class="col-xs-12 col-sm-4 col-md-3">
   <div class="card">
-    <div class="card-category">By <%= place.user.first_name %></div>
+    <div class="card-category">
+      <% place.rating.times do %>
+        <i class="fa fa-star active-star"></i>
+      <% end %>
+      <% (5 - place.rating).times do %>
+        <i class="fa fa-star inactive-star"></i>
+      <% end %>
+    </div>
 
 
     <div class="card-header" style="background-image: url('<%= cl_image_path place.photo, height: 300, width: 400, crop: :fill %>')">
