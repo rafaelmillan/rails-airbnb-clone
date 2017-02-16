@@ -14,6 +14,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-4">
+      <h3>User</h3>
+      <%= link_to @place.user.first_name, user_path(@place.user) %>
 
       <h3>Description</h3>
       <%= @place.description %>
@@ -21,13 +23,23 @@
       <h3>Address</h3>
       <%= @place.address %>
 
+      <h3>Features</h3>
+      <ul>
+        <li>UV: <%= @place.UV %></li>
+        <li>Startlight: <%= @place.startlight %></li>
+        <li>Satellite: <%= @place.satellite %></li>
+        <li>Wifi: <%= @place.wifi %></li>
+        <li>Earth mailing: <%= @place.earth_mailing %></li>
+        <li>Astronaut outfit: <%= @place.astronaut_outfit %></li>
+        <li>Crater: <%= @place.crater %></li>
+        <li>Freezing: <%= @place.freezing %></li>
+        <li>Alien: <%= @place.alien %></li>
+        <li>Detox: <%= @place.detox %></li>
+      </ul>
+
+
       <h3>Price </h3>
-      <%= @place.price %> €
-
-      <h3>User</h3>
-      <%= link_to @place.user.first_name, user_path(@place.user) %>
-
-
+      <%= @place.price %> $
     </div>
 
     <div class="col-xs-12 col-md-8">
@@ -45,7 +57,7 @@
       <h2>Add your review</h2>
       <%= simple_form_for([@place, @review]) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :rating, collection: Review::RATING, label: false, as: :radio_buttons, item_label_class: false, item_wrapper_class: "inline" %>
+      <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, input_html: {display:'inline'} %>
       <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
       <%= f.submit  %>
       <% end %>
