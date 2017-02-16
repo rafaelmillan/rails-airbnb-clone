@@ -1,43 +1,74 @@
  <div class="place-photo-wrapper" style= "background-image: url('<%= cl_image_path @place.photo, width: 1500, height: 400, crop: :fill %>')">
- <div class="banner-content">
-  <h1><%= @place.name %></h1>
-  <div>
-  <% if user_signed_in? %>
-    <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" %>
-  <% else %>
-    <%= link_to "Book", new_user_session_path, class: "btn btn-transparent btn-lg" %>
-  <% end %>
+   <div class="banner-content">
+    <h1><%= @place.name %></h1>
+    <div>
+      <% if user_signed_in? %>
+      <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" %>
+      <% else %>
+      <%= link_to "Book", new_user_session_path, class: "btn btn-transparent btn-lg" %>
+      <% end %>
 
-  </div>
+    </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-4">
 
-          <h3>Description</h3>
-          <%= @place.description %>
+      <h3>Description</h3>
+      <%= @place.description %>
 
-          <h3>Address</h3>
-          <%= @place.address %>
+      <h3>Address</h3>
+      <%= @place.address %>
 
-         <h3>Price </h3>
-         <%= @place.price %> €
+      <h3>Price </h3>
+      <%= @place.price %> €
 
-         <h3>User</h3>
-         <%= link_to @place.user.first_name, user_path(@place.user) %>
+      <h3>User</h3>
+      <%= link_to @place.user.first_name, user_path(@place.user) %>
 
 
-   </div>
+    </div>
 
- <div class="col-xs-12 col-md-8">
-   <h3>Galaxy location</h3>
-   <div style="background-image: url('<%= image_path 'space_map.jpg' %>')" class="space-map">
-     <i class="fa fa-map-marker"></i>
+    <div class="col-xs-12 col-md-8">
+     <h3>Galaxy location</h3>
+     <div style="background-image: url('<%= image_path 'space_map.jpg' %>')" class="space-map">
+       <i class="fa fa-map-marker"></i>
+     </div>
    </div>
  </div>
 </div>
+
+<div class="container">
+<div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <h2>Add your review</h2>
+      <%= simple_form_for([@place, @review]) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :rating, collection: Review::RATING, label: false, as: :radio_buttons, item_label_class: false, item_wrapper_class: "inline" %>
+      <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
+      <%= f.submit  %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <h2>Reviews: </h2>
+      <ul>
+        <% @place.reviews.each do |r| %>
+        <li><%= r.content %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="padded text-center" >
   <%= link_to "Back to homepage", places_path, class: "btn-medium" %>
 </div>
+
+
+
+
+

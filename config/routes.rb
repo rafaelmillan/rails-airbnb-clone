@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :places do
     resources :reservations, only: [ :create ]
+    resources :reviews, only:[ :create ]
   end
-
 
   resources :users, only: [:show]
   patch "reservations/:id/accept", to: "reservations#accept", as: :reservation_accept
