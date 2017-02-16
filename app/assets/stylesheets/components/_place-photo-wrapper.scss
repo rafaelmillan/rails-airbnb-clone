@@ -15,18 +15,13 @@
   margin-bottom: 30px;
   position: absolute;
   top: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   .btn {
-    border-radius: 50px;
-    margin-top: 15px;
-    background-color: rgba(0,0,0,0);
-    border: 1px white solid;
-    color: white;
+    background-color: transparent;
+    border: none;
+    color: gray;
     &:hover {
-      background-color: rgba(0,0,0,0.3);
+      background-color: transparent;
+      color: #4C4C4C;
     }
   }
   input {
@@ -38,10 +33,32 @@
   .form-group, .form-control {
     width: 100%;
   }
+  form {
+    position: relative;
+  }
+  input {
+    border-radius: 25px;
+  }
+  button {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    padding: 0;
+  }
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - 70px);
+  h1 {
+    margin-bottom: 30px;
+  }
 }
 
 .banner-content {
-  top: 0;
   color: white;
 }
 
