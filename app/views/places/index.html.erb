@@ -1,25 +1,33 @@
+<div class="place-photo-wrapper home-hero" style= "background-image: url('<%= image_path "space-hero.jpg", width: 1500, height: 400, crop: :fill %>')">
+ <div class="banner-content">
+  <h1>Rent a place in a galaxy near you</h1>
+  <%= link_to "Discover", "#", class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+
 <div class="wrapper">
   <div class="container">
+  <h1>Places near you</h1>
     <div class="row", id="place-list">
       <% @places.each do |place| %>
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <div class="card text-center">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card text-center">
 
 
-            <div class="card-header" style="background-image: url('<%= cl_image_path place.photo, height: 300, width: 400, crop: :fill %>')">
-            </div>
-
-
-            <div class="card-description">
-              <h3><%= place.name %></h3>
-            </div>
-            <%= link_to "", place_path(place), class: "card-link" %>
+          <div class="card-header" style="background-image: url('<%= cl_image_path place.photo, height: 300, width: 400, crop: :fill %>')">
           </div>
+
+
+          <div class="card-description">
+            <h3><%= place.name %></h3>
+          </div>
+          <%= link_to "", place_path(place), class: "card-link" %>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
-  <%= link_to 'Add new place', new_place_path(@place), class: "btn btn-success" %>
+  <%= link_to 'Add new place', new_place_path(@place), class: "btn btn-success btn-lg" %>
 </div>
 
 

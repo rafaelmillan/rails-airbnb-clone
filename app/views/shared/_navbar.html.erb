@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <span>Seventh Heaven</span>
   <% end %>
 
   <!-- Right Navigation -->
@@ -9,7 +9,7 @@
 
     <!-- Search form -->
     <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search a galaxy">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
@@ -19,7 +19,7 @@
     <% if user_signed_in? %>
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -39,7 +39,7 @@
 
     <% else %>
     <!-- Button (call-to-action) -->
-      <%= link_to t(".top_call_to_action", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".top_call_to_action", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".top_call_to_action", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% end %>
   </div>

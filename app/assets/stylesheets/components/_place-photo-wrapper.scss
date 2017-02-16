@@ -8,6 +8,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.home-hero {
+  height: calc(100vh - 70px);
+  margin-bottom: 30px;
+  .btn {
+    border-radius: 50px;
+    margin-top: 15px;
+    background-color: rgba(0,0,0,0);
+    border: 1px white solid;
+    color: white;
+    &:hover {
+      background-color: rgba(0,0,0,0.3);
+    }
+  }
+}
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
@@ -19,3 +35,5 @@
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
 }
+
+
