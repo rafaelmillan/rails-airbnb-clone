@@ -8,4 +8,8 @@ class Place < ApplicationRecord
   validates :price, presence: true
   validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
+
+  def rating
+    self.reviews.average(:rating).to_i
+  end
 end

@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_many :places, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :reviews, through: :places
   mount_uploader :photo, PhotoUploader
 
 def self.find_for_facebook_oauth(auth)
@@ -30,6 +31,10 @@ def self.find_for_facebook_oauth(auth)
 
   def username
     return self.email.split("@")[0].capitalize
+  end
+
+  def rating
+    return self.reviews.average(:rating).to_i
   end
 
 end

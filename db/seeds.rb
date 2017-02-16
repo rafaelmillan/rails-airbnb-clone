@@ -3,6 +3,7 @@ puts "Destroying records"
 User.destroy_all
 Place.destroy_all
 Reservation.destroy_all
+Review.destroy_all
 
 Faker::UniqueGenerator.clear
 
@@ -23,7 +24,8 @@ end
 user = User.new(
   email: "rafmillan@gmail.com",
   password: "123456",
-  first_name: "Rafael"
+  first_name: "Rafael",
+  bio: Faker::StarWars.quote
 )
 user.photo = Rails.root.join("db/seed_avatars/rafael.jpg").open
 user.save!
@@ -88,4 +90,17 @@ place.save!
     res.status = "declined"
   end
   res.save!
+end
+
+puts "Seeding reviews"
+
+Place.all.each do |place|
+  5.times do
+    review = Review.new(
+      content: Faker::HarryPotter.quote,
+      rating: (2..5).to_a.sample,
+      place: place
+    )
+  review.save!
+  end
 end
