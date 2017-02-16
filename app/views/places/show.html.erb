@@ -45,6 +45,7 @@
       <h2>Add your review</h2>
       <%= simple_form_for([@place, @review]) do |f| %>
       <%= f.error_notification %>
+      <%= f.input :rating, collection: Review::RATING, label: false, as: :radio_buttons, item_label_class: false, item_wrapper_class: "inline" %>
       <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
       <%= f.submit  %>
       <% end %>
