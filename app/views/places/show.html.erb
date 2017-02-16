@@ -14,6 +14,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-4">
+      <h3>User</h3>
+      <%= link_to @place.user.first_name, user_path(@place.user) %>
 
       <h3>Description</h3>
       <%= @place.description %>
@@ -21,11 +23,29 @@
       <h3>Address</h3>
       <%= @place.address %>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+          <h3>Features</h3>
+          <p>UV: <%= @place.UV %></p>
+          <p>Startlight: <%= @place.startlight %></p>
+          <p>Satellite: <%= @place.satellite %></p>
+          <p>Wifi: <%= @place.wifi %></p>
+          <p>Earth mailing: <%= @place.earth_mailing %></p>
+          <p>Astronaut outfit: <%= @place.astronaut_outfit %></p>
+          <p>Crater: <%= @place.crater %></p>
+          <p>Freezing: <%= @place.freezing %></p>
+          <p>Alien: <%= @place.alien %></p>
+          <p>Detox: <%= @place.detox %></p>
+          </div>
+        </div>
+      </div>
+
+
       <h3>Price </h3>
       <%= @place.price %> €
 
-      <h3>User</h3>
-      <%= link_to @place.user.first_name, user_path(@place.user) %>
+
 
 
     </div>

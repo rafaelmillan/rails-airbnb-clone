@@ -6,6 +6,24 @@
  <%= f.input :name %>
  <%= f.input :description %>
  <%= f.input :address %>
+ <p>Features</p>
+ <div class="feature-items">
+  <div class="row">
+    <div class="col-sm-6">
+     <%= f.input :UV, label: 'UV', as: :boolean, boolean_style: :inline %>
+     <%= f.input :startlight, label: 'Startlight', as: :boolean, boolean_style: :inline %>
+     <%= f.input :satellite, label: 'Satellite',as: :boolean, boolean_style: :inline %>
+     <%= f.input :wifi, label: 'Wifi', as: :boolean, boolean_style: :inline %>
+     <%= f.input :earth_mailing, label: 'Earth mailing', as: :boolean, boolean_style: :inline %>
+     <%= f.input :astronaut_outfit, label: 'Astronaut outfit', as: :boolean, boolean_style: :inline %>
+     <%= f.input :crater, label: 'Crater', as: :boolean, boolean_style: :inline %>
+     <%= f.input :alien, label: 'Alien', as: :boolean, boolean_style: :inline %>
+     <%= f.input :freezing, label: 'Freezing', as: :boolean, boolean_style: :inline %>
+     <%= f.input :detox, label: 'Detox', as: :boolean, boolean_style: :inline %>
+    </div>
+  </div>
+ </div>
+
  <%= f.input :price %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
