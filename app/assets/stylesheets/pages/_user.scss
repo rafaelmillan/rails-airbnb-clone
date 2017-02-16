@@ -17,4 +17,34 @@
 
 .dashboard {
   margin-top: 30px;
+  .nav-tabs {
+    border-bottom: none;
+    background-color: #E6E6E6;
+    border: none;
+    a {
+      color: black;
+    }
+    .active a {
+    border-bottom: solid #777;
+    border-width: 0 0 3px 0;
+    color: black;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+      border-bottom: solid #777;
+      border-width: 0 0 3px 0;
+    }
+    }
+    li a:hover {
+      background-color: transparent;
+      border-bottom: solid;
+      border-color: transparent;
+      border-width: 0 0 3px 0;
+      &:hover {
+      background-color: transparent;
+      border-bottom: solid #777;
+      border-width: 0 0 3px 0;
+    }
+    }
+  }
 }
