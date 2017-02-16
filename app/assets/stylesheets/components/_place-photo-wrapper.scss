@@ -9,20 +9,59 @@
   justify-content: center;
 }
 
-.home-hero {
+.hero-wrapper {
   height: calc(100vh - 70px);
+  width: 100%;
   margin-bottom: 30px;
+  position: absolute;
+  top: 70px;
   .btn {
-    border-radius: 50px;
-    margin-top: 15px;
-    background-color: rgba(0,0,0,0);
-    border: 1px white solid;
-    color: white;
+    background-color: transparent;
+    border: none;
+    color: gray;
     &:hover {
-      background-color: rgba(0,0,0,0.3);
+      background-color: transparent;
+      color: #4C4C4C;
     }
   }
+  input {
+    height: 50px;
+    box-shadow: 0px 3px 20px 0px rgba(0,0,0,0.2);
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .form-group, .form-control {
+    width: 100%;
+  }
+  form {
+    position: relative;
+  }
+  input {
+    border-radius: 25px;
+  }
+  button {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    padding: 0;
+  }
 }
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - 70px);
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+.banner-content {
+  color: white;
+}
+
 
 .banner h1 {
   font-size: 50px;

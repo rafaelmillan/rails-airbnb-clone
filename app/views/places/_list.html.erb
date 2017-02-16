@@ -1,0 +1,20 @@
+<% @places.each do |place| %>
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="card">
+    <div class="card-category">By <%= place.user.first_name %></div>
+
+
+    <div class="card-header" style="background-image: url('<%= cl_image_path place.photo, height: 300, width: 400, crop: :fill %>')">
+    </div>
+
+
+    <div class="card-description">
+      <h2><%= place.name %></h2>
+      <p>€<%= place.price %></p>
+    </div>
+    <% avatar_url = place.user.facebook_picture_url || place.user.photo %>
+    <%= cl_image_tag avatar_url, class: "card-user avatar" %>
+    <%= link_to "", place_path(place), class: "card-link" %>
+  </div>
+</div>
+<% end %>
