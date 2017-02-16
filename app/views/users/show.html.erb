@@ -73,9 +73,9 @@
                 <% if res.status == "pending" %>
                 <%= link_to "Accept", reservation_accept_path(res.id), method: :patch, class: "btn btn-success btn-xs" %> <%= link_to "Decline", reservation_decline_path(res.id), method: :patch, class: "btn btn-danger btn-xs" %>
                 <% elsif res.status == "accepted" %>
-                <span class="label label-success"><i class="fa fa-check"></i></span> Accepted
+                <i class="fa fa-check"></i> Accepted
                 <% elsif res.status == "declined" %>
-                <span class="label label-danger"><i class="fa fa-times"></i></span> Declined
+                <i class="fa fa-times"></i> Declined
                 <% end %>
               </td>
             </tr>
@@ -99,11 +99,11 @@
               </td>
               <td>
                 <% if res.status == "accepted" %>
-                <span class="label label-success"><i class="fa fa-check"></i></span> Accepted
+                <i class="fa fa-check"></i> Accepted
                 <% elsif res.status == "declined" %>
-                <span class="label label-danger"><i class="fa fa-times"></i></span> Declined
+                <i class="fa fa-times"></i> Declined
                 <% else %>
-                <span class="label label-default"><i class="fa fa-question"></i></span> Pending
+                <i class="fa fa-question"></i> Pending
                 <% end %>
               </td>
             </tr>

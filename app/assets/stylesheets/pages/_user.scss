@@ -19,7 +19,7 @@
   margin-top: 30px;
   .nav-tabs {
     border-bottom: none;
-    background-color: #E6E6E6;
+    background-color: #F3F3F3;
     border: none;
     a {
       color: black;
@@ -35,16 +35,48 @@
       border-width: 0 0 3px 0;
     }
     }
-    li a:hover {
+    li {
+      width: 50%;
+      text-align: center;
+    }
+    li a {
       background-color: transparent;
       border-bottom: solid;
       border-color: transparent;
       border-width: 0 0 3px 0;
-      &:hover {
+      padding: 20px;
+      margin: 0;
+      &:hover, &:active, &:focus {
       background-color: transparent;
       border-bottom: solid #777;
       border-width: 0 0 3px 0;
     }
     }
   }
+
+  th {
+    color: #CCCCCC;
+    text-transform: uppercase;
+  }
+
+  tr {
+    border: none;
+  }
+
+  .table td, .table th {
+    padding: 15px;
+  }
+
+  .btn-success {
+    background-color: #32B796;
+    color: white;
+    border: none;
+  }
+
+  .btn-danger {
+    background-color: #EE5F5B;
+    color: white;
+    border: none;
+  }
+
 }
