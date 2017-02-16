@@ -49,37 +49,46 @@
      </div>
    </div>
  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <h2>Reviews: </h2>
+
+        <% @place.reviews.each do |review| %>
+          <% review.rating.times do %>
+          <i class="fa fa-star active-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+          <i class="fa fa-star inactive-star"></i>
+          <% end %>
+          <p><%= review.content %></p>
+        <% end %>
+  </div>
 </div>
 
-<div class="container">
+<% if current_user.reservations.any? { |reservation| reservation.place == @place && reservation.status == "accepted" } %>
 <div class="row">
     <div class="col-xs-12 col-sm-4">
       <h2>Add your review</h2>
       <%= simple_form_for([@place, @review]) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, input_html: {display:'inline'} %>
+      <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
       <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
       <%= f.submit  %>
       <% end %>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <h2>Reviews: </h2>
-      <ul>
-        <% @place.reviews.each do |r| %>
-        <li><%= r.content %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+
+<% end %>
+
+
+
 <div class="padded text-center" >
   <%= link_to "Back to homepage", places_path, class: "btn-medium" %>
 </div>
 
+</div>
 
 
 
