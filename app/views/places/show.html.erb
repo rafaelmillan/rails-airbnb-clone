@@ -23,31 +23,23 @@
       <h3>Address</h3>
       <%= @place.address %>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-4">
-          <h3>Features</h3>
-          <p>UV: <%= @place.UV %></p>
-          <p>Startlight: <%= @place.startlight %></p>
-          <p>Satellite: <%= @place.satellite %></p>
-          <p>Wifi: <%= @place.wifi %></p>
-          <p>Earth mailing: <%= @place.earth_mailing %></p>
-          <p>Astronaut outfit: <%= @place.astronaut_outfit %></p>
-          <p>Crater: <%= @place.crater %></p>
-          <p>Freezing: <%= @place.freezing %></p>
-          <p>Alien: <%= @place.alien %></p>
-          <p>Detox: <%= @place.detox %></p>
-          </div>
-        </div>
-      </div>
+      <h3>Features</h3>
+      <ul>
+        <li>UV: <%= @place.UV %></li>
+        <li>Startlight: <%= @place.startlight %></li>
+        <li>Satellite: <%= @place.satellite %></li>
+        <li>Wifi: <%= @place.wifi %></li>
+        <li>Earth mailing: <%= @place.earth_mailing %></li>
+        <li>Astronaut outfit: <%= @place.astronaut_outfit %></li>
+        <li>Crater: <%= @place.crater %></li>
+        <li>Freezing: <%= @place.freezing %></li>
+        <li>Alien: <%= @place.alien %></li>
+        <li>Detox: <%= @place.detox %></li>
+      </ul>
 
 
       <h3>Price </h3>
-      <%= @place.price %> €
-
-
-
-
+      <%= @place.price %> $
     </div>
 
     <div class="col-xs-12 col-md-8">
@@ -65,7 +57,7 @@
       <h2>Add your review</h2>
       <%= simple_form_for([@place, @review]) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :rating, collection: Review::RATING, label: false, as: :radio_buttons, item_label_class: false, item_wrapper_class: "inline" %>
+      <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, input_html: {display:'inline'} %>
       <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
       <%= f.submit  %>
       <% end %>
