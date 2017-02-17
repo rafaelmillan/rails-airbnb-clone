@@ -31,18 +31,47 @@
       <%= @place.description %>
 
       <h3>Features</h3>
-      <ul>
-        <li><i class="fa fa-sun-o"></i> UV: <%= @place.UV %></li>
-        <li><i class="fa fa-star-o"></i> Shooting star: <%= @place.startlight %></li>
-        <li><i class="fa fa-globe"></i> Satellite: <%= @place.satellite %></li>
-        <li><i class="fa fa-wifi"></i> Wifi: <%= @place.wifi %></li>
-        <li><i class="fa fa-envelope-o"></i> Earth mailing: <%= @place.earth_mailing %></li>
-        <li><i class="fa fa-user-circle-o"></i> Astronaut outfit: <%= @place.astronaut_outfit %></li>
-        <li><i class="fa fa-cicrcle"></i> Craters: <%= @place.crater %></li>
-        <li><i class="fa fa-thermometer-empty"></i> Deep freezing: <%= @place.freezing %></li>
-        <li><i class="fa fa-reddit-alien"></i> Alien: <%= @place.alien %></li>
-        <li><i class="fa fa-smile-o"></i> Detox: <%= @place.detox %></li>
-      </ul>
+      <div class="row">
+        <div class="col-xs-6">
+          <ul class="fa-ul">
+            <li <%= "class=unsupported" if @place.UV == false %>>
+            <i class="fa-li fa fa-sun-o"></i>UV
+            </li>
+            <li <%= "class=unsupported" if @place.startlight == false %>>
+              <i class="fa-li fa fa-star-o"></i><span> Shooting stars</span>
+            </li>
+            <li <%= "class=unsupported" if @place.satellite == false %>>
+              <i class="fa-li fa fa-globe"></i>Satellite</span>
+            </li>
+            <li <%= "class=unsupported" if @place.wifi == false %>>
+              <i class="fa-li fa fa-wifi"></i>Wifi</span>
+            </li>
+            <li <%= "class=unsupported" if @place.earth_mailing == false %>>
+              <i class="fa-li fa fa-envelope-o"></i>Earth mailing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-6">
+          <ul class="fa-ul">
+            <li <%= "class=unsupported" if @place.astronaut_outfit == false %>>
+              <i class="fa-li fa fa-user-circle-o"></i>Astronaut outfit</span>
+            </li>
+            <li <%= "class=unsupported" if @place.crater == false %>>
+              <i class="fa-li fa fa-circle"></i>Craters</span>
+            </li>
+            <li <%= "class=unsupported" if @place.freezing == false %>>
+              <i class="fa-li fa fa-thermometer-empty"></i>Deep freezing</span>
+            </li>
+            <li <%= "class=unsupported" if @place.alien == false %>>
+              <i class="fa-li fa fa-reddit-alien"></i>Alien</span>
+            </li>
+            <li <%= "class=unsupported" if @place.detox == false %>>
+              <i class="fa-li fa fa-smile-o"></i>Detox</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
 
       <h3>Address</h3>
       <%= @place.address %>
@@ -85,8 +114,8 @@
     <% end %>
 
 
-   </div>
- </div>
+  </div>
+</div>
 
 
 <div class="padded text-center" >
