@@ -108,7 +108,7 @@
         <%= simple_form_for([@place, @review]) do |f| %>
         <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
         <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
-        <%= f.submit class: "btn btn-success btn-lg"  %>
+        <%= f.submit class: "btn btn-lg"  %>
         <% end %>
     <% end %>
 

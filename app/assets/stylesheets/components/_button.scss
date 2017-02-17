@@ -31,7 +31,7 @@
   border: 1px #6b6b6b solid;
   background-color: white;
   color: #6b6b6b;
-  &:hover {
+  &:hover, &:active, &:focus {
     border-color: #6b6b6b;
     color: #6b6b6b;
     background-color: #f2f2f2;
