@@ -38,8 +38,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.0)
-      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     autoprefixer-rails (6.7.2)
       execjs
@@ -99,10 +97,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (1.5.6)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    letter_opener (1.4.1)
-      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -148,7 +142,6 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_suffix (2.0.5)
     puma (3.7.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -242,7 +235,6 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
-  letter_opener
   listen (~> 3.0.5)
   omniauth-facebook
   pg
