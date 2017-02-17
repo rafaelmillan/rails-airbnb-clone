@@ -38,10 +38,10 @@ def self.find_for_facebook_oauth(auth)
     return self.reviews.average(:rating).to_i
   end
 
-  private
+  #private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
- end
+  #def send_welcome_email
+    #UserMailer.welcome(self).deliver_now
+ #end
 
 end
