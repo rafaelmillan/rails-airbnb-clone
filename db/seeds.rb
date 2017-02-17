@@ -14,7 +14,8 @@ i = 1
   user = User.new(
     email: Faker::Internet.unique.email,
     password: "123456",
-    first_name: Faker::StarWars.character
+    first_name: Faker::StarWars.character,
+    bio: Faker::StarWars.quote
   )
   user.photo = Rails.root.join("db/seed_avatars/#{i}.jpg").open
   user.save!
@@ -39,7 +40,17 @@ i = 1
     description: Faker::StarWars.quote,
     address: "#{(100..5000).to_a.sample} #{Faker::Space.star}, #{Faker::Space.galaxy}",
     price: (1000..3000).to_a.sample,
-    user: User.all.sample
+    user: User.all.sample,
+    UV: [true, false].sample,
+    startlight: [true, false].sample,
+    satellite: [true, false].sample,
+    wifi: [true, false].sample,
+    earth_mailing: [true, false].sample,
+    astronaut_outfit: [true, false].sample,
+    crater: [true, false].sample,
+    freezing: [true, false].sample,
+    alien: [true, false].sample,
+    detox: [true, false].sample
   )
   place.photo = Rails.root.join("db/seed_images/#{i}.jpg").open
   place.save!
