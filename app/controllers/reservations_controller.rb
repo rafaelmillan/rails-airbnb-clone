@@ -1,8 +1,8 @@
 class ReservationsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_reservation, only: [ :accept, :decline ]
-  user = User.first
-  UserMailer.welcome(user).deliver_now
+  # user = User.first
+  # UserMailer.welcome(user).deliver_now
 
   def create
     @reservation = Reservation.new
