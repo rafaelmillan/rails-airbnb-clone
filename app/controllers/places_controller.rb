@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
-      redirect_to root_path
+      redirect_to place_path(@place)
     else
       render :new
     end
@@ -44,7 +44,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :description, :address, :price, :photo, :photo_cache)
+    params.require(:place).permit(:name, :description, :address, :price, :photo, :photo_cache, :UV, :startlight, :satellite, :wifi, :earth_mailing, :astronaut_outfit, :crater, :freezing, :alien, :detox)
   end
 
   def set_place
