@@ -27,7 +27,10 @@
     <h1>Places near you</h1>
     <div class="row", id="place-list">
       <%= render "list" %>
-    <%= link_to 'Add new place', new_place_path(@place), class: "btn btn-success btn-lg" %>
     </div>
   </div>
+</div>
+
+<div class='button-wrapper'>
+<%= link_to 'Add new place', new_place_path(@place), class: "btn btn-success btn-lg" %>
 </div>
