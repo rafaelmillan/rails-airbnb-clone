@@ -106,10 +106,9 @@
 
         <h2>Add your review</h2>
         <%= simple_form_for([@place, @review]) do |f| %>
-        <%= f.error_notification %>
         <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
         <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
-        <%= f.submit  %>
+        <%= f.submit class: "btn btn-success btn-lg"  %>
         <% end %>
     <% end %>
 
