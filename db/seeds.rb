@@ -14,7 +14,8 @@ i = 1
   user = User.new(
     email: Faker::Internet.unique.email,
     password: "123456",
-    first_name: Faker::StarWars.character
+    first_name: Faker::StarWars.character,
+    bio: Faker::StarWars.quote
   )
   user.photo = Rails.root.join("db/seed_avatars/#{i}.jpg").open
   user.save!
