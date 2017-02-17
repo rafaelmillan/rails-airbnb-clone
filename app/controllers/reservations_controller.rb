@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.place = Place.find(params[:place_id])
     @reservation.save
-    redirect_to user_path(current_user) # Change once we create a users#show
+    redirect_to user_path(current_user), notice: "Your booking was submitted and it's awaiting confirmation."
   end
 
   def accept

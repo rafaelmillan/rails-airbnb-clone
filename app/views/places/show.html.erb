@@ -1,87 +1,120 @@
- <div class="place-photo-wrapper" style= "background-image: url('<%= cl_image_path @place.photo, width: 1500, height: 400, crop: :fill %>')">
+ <div class="place-photo-wrapper" style= "background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @place.photo, width: 1500, height: 400, crop: :fill %>')">
    <div class="banner-content">
     <h1><%= @place.name %></h1>
+    <p>
+      <% @place.rating.times do %>
+      <i class="fa fa-star active-star"></i>
+      <% end %>
+      <% (5 - @place.rating).times do %>
+      <i class="fa fa-star inactive-star"></i>
+      <% end %>
+    </p>
     <div>
       <% if user_signed_in? %>
-      <%= link_to "Book", place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" %>
+        <%= link_to place_reservations_path(@place), method: :post, class: "btn btn-transparent btn-lg" do %>
+          Book for €<%= @place.price %>
+        <% end %>
       <% else %>
-      <%= link_to "Book", new_user_session_path, class: "btn btn-transparent btn-lg" %>
+        <%= link_to new_user_session_path, class: "btn btn-transparent btn-lg" do %>
+          Book for €<%= @place.price %>
+        <% end %>
       <% end %>
-
     </div>
   </div>
 </div>
+
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <h3>User</h3>
-      <%= link_to @place.user.first_name, user_path(@place.user) %>
+    <div class="col-xs-12 col-md-6">
 
       <h3>Description</h3>
       <%= @place.description %>
 
-      <h3>Address</h3>
+      <h3>Features</h3>
+      <div class="row">
+        <div class="col-xs-6">
+          <ul class="fa-ul">
+            <li <%= "class=unsupported" if @place.UV == false %>>
+              <i class="fa-li fa fa-sun-o"></i>UV
+            </li>
+            <li <%= "class=unsupported" if @place.startlight == false %>>
+              <i class="fa-li fa fa-star-o"></i><span> Shooting stars</span>
+            </li>
+            <li <%= "class=unsupported" if @place.satellite == false %>>
+              <i class="fa-li fa fa-globe"></i>Satellite</span>
+            </li>
+            <li <%= "class=unsupported" if @place.wifi == false %>>
+              <i class="fa-li fa fa-wifi"></i>Wifi</span>
+            </li>
+            <li <%= "class=unsupported" if @place.earth_mailing == false %>>
+              <i class="fa-li fa fa-envelope-o"></i>Earth mailing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-6">
+          <ul class="fa-ul">
+            <li <%= "class=unsupported" if @place.astronaut_outfit == false %>>
+              <i class="fa-li fa fa-user-circle-o"></i>Astronaut outfit</span>
+            </li>
+            <li <%= "class=unsupported" if @place.crater == false %>>
+              <i class="fa-li fa fa-circle"></i>Craters</span>
+            </li>
+            <li <%= "class=unsupported" if @place.freezing == false %>>
+              <i class="fa-li fa fa-thermometer-empty"></i>Deep freezing</span>
+            </li>
+            <li <%= "class=unsupported" if @place.alien == false %>>
+              <i class="fa-li fa fa-reddit-alien"></i>Alien</span>
+            </li>
+            <li <%= "class=unsupported" if @place.detox == false %>>
+              <i class="fa-li fa fa-smile-o"></i>Detox</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Galaxy location</h3>
       <%= @place.address %>
 
-      <h3>Features</h3>
-      <ul>
-        <li>UV: <%= @place.UV %></li>
-        <li>Startlight: <%= @place.startlight %></li>
-        <li>Satellite: <%= @place.satellite %></li>
-        <li>Wifi: <%= @place.wifi %></li>
-        <li>Earth mailing: <%= @place.earth_mailing %></li>
-        <li>Astronaut outfit: <%= @place.astronaut_outfit %></li>
-        <li>Crater: <%= @place.crater %></li>
-        <li>Freezing: <%= @place.freezing %></li>
-        <li>Alien: <%= @place.alien %></li>
-        <li>Detox: <%= @place.detox %></li>
-      </ul>
+     <div id="map_canvas" style="width: 100%; height: 300px;">map div</div>
 
+   </div>
 
-      <h3>Price </h3>
-      <%= @place.price %> $
+   <div class="col-xs-12 col-md-6">
+
+    <div class="user-info">
+      <% user_avatar_url = @place.user.facebook_picture_url || @place.user.photo %>
+
+      <%= image_tag user_avatar_url, crop: :fill, class: "avatar-large" %>
+      <h2><%= link_to @place.user.first_name, user_path(@place.user) %></h2>
+      <p><%= @place.user.bio %></p>
     </div>
 
-    <div class="col-xs-12 col-md-8">
-     <h3>Galaxy location</h3>
-     <div style="background-image: url('<%= image_path 'space_map.jpg' %>')" class="space-map">
-       <i class="fa fa-map-marker"></i>
-     </div>
-   </div>
- </div>
+    <div class="user-details">
+     <h2>Place reviews</h2>
+     <% @place.reviews.each do |review| %>
+     <% review.rating.times do %>
+     <i class="fa fa-star active-star"></i>
+     <% end %>
+     <% (5 - review.rating).times do %>
+     <i class="fa fa-star inactive-star"></i>
+     <% end %>
+     <p><%= review.content %></p>
+     <% end %>
 
+     <% if user_signed_in? && current_user.reservations.any? { |reservation| reservation.place == @place && reservation.status == "accepted" } %>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <h2>Reviews: </h2>
-
-        <% @place.reviews.each do |review| %>
-          <% review.rating.times do %>
-          <i class="fa fa-star active-star"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-          <i class="fa fa-star inactive-star"></i>
-          <% end %>
-          <p><%= review.content %></p>
+        <h2>Add your review</h2>
+        <%= simple_form_for([@place, @review]) do |f| %>
+        <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
+        <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
+        <%= f.submit class: "btn btn-success btn-lg"  %>
         <% end %>
+    <% end %>
+
   </div>
 </div>
-
-<% if current_user.reservations.any? { |reservation| reservation.place == @place && reservation.status == "accepted" } %>
-<div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <h2>Add your review</h2>
-      <%= simple_form_for([@place, @review]) do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :rating, collection: Review::RATING, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
-      <%= f.input :content, as: :text, input_html: {rows: 5, cols: 10} %>
-      <%= f.submit  %>
-      <% end %>
-    </div>
-  </div>
-
-<% end %>
-
+</div>
 
 
 <div class="padded text-center" >
