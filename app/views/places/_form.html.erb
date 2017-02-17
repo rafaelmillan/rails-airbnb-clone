@@ -1,53 +1,59 @@
-<div class="container">
+<div class="banner" style="background-image: url('<%= image_path 'newplaceback.jpg' %>')">
+<div class="container" >
 <div class="row">
-<div class="col-sm-offset-4 col-sm-4">
+<div class="col-sm-offset-2 col-sm-8 col-md-6 col-md-offset-3">
+<div class="form " >
 <%= simple_form_for(@place) do |f| %>
 <%= f.error_notification %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <label>Features</label>
+  <%= f.input :name, label_html: {class:"h4"} %>
+  <%= f.input :description, label_html: {class:"h4"} %>
+  <%= f.input :address, label_html: {class:"h4"} %>
+  <label class="h4">Features</label>
   <div class="feature-items">
   <div class="row">
     <div class="col-sm-6">
-      <%= f.input :UV, label: 'UV', as: :boolean, boolean_style: :inline %>
+      <%= f.input :UV, label_html: {class: "type"},label: 'UV', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :startlight, label: 'Startlight', as: :boolean, boolean_style: :inline %>
+      <%= f.input :startlight, label_html: {class:"type"}, label: 'Shooting star', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :satellite, label: 'Satellite',as: :boolean, boolean_style: :inline %>
+      <%= f.input :satellite, label_html: {class:"type"}, label: 'Satellite',as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :wifi, label: 'Wifi', as: :boolean, boolean_style: :inline %>
+      <%= f.input :wifi, label_html: {class:"type"}, label: 'Wifi', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :earth_mailing, label: 'Earth mailing', as: :boolean, boolean_style: :inline %>
+      <%= f.input :earth_mailing, label_html: {class:"type"}, label: 'Earth mailing', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :astronaut_outfit, label: 'Astronaut outfit', as: :boolean, boolean_style: :inline %>
+      <%= f.input :astronaut_outfit, label_html: {class:"type"},label: 'Astronaut outfit', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :crater, label: 'Crater', as: :boolean, boolean_style: :inline %>
+      <%= f.input :crater, label_html: {class:"type"}, label: 'Crater', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :alien, label: 'Alien', as: :boolean, boolean_style: :inline %>
+      <%= f.input :alien, label_html: {class:"type"}, label: 'Alien', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :freezing, label: 'Freezing', as: :boolean, boolean_style: :inline %>
+      <%= f.input :freezing, label_html: {class:"type"}, label: 'Freezing', as: :boolean, boolean_style: :inline %>
     </div>
     <div class="col-sm-6">
-     <%= f.input :detox, label: 'Detox', as: :boolean, boolean_style: :inline %>
+     <%= f.input :detox, label_html: {class:"type"}, label: 'Detox', as: :boolean, boolean_style: :inline %>
     </div>
   </div>
  </div>
 
- <%= f.input :price %>
-  <%= f.input :photo %>
+ <%= f.input :price, label_html: {class:"h4"} %>
+  <%= f.input :photo, label_html: {class:"h4"} %>
   <%= f.input :photo_cache, as: :hidden %>
- <%= f.submit %>
+  <div class="button-wrapper">
+    <%= f.submit class: "btn btn-medium " %>
+</div>
+
 <% end %>
 </div>
 </div>
 </div>
-
+</div>
+</div>
