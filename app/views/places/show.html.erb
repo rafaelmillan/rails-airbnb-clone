@@ -102,7 +102,7 @@
      <p><%= review.content %></p>
      <% end %>
 
-     <% if current_user.reservations.any? { |reservation| reservation.place == @place && reservation.status == "accepted" } %>
+     <% if user_signed_in? && current_user.reservations.any? { |reservation| reservation.place == @place && reservation.status == "accepted" } %>
 
         <h2>Add your review</h2>
         <%= simple_form_for([@place, @review]) do |f| %>
